@@ -1,6 +1,6 @@
 [
   {
-    "name": "テストクリスタA",
+    "name": "オートクリスタA",
     "type": "クリスタ",
     "slot": "武器",
     "effects": {
@@ -8,23 +8,65 @@
       "atk": 0,
       "matk": 0,
       "critical": 0,
-      "resist": 0
+      "resist": 0,
+      "mp": 0,
+      "delay": 0
     },
     "price": "高",
-    "job": "全職"
+    "job": [
+      "パラディン",
+      "ハイザ",
+      "全職"
+    ],
+    "tags": [
+      "オート",
+      "自動攻撃"
+    ]
   },
   {
-    "name": "テストクリスタB",
+    "name": "MATK強化クリスタ",
+    "type": "クリスタ",
+    "slot": "武器",
+    "effects": {
+      "auto": 0,
+      "atk": 0,
+      "matk": 10,
+      "critical": 0,
+      "resist": 0,
+      "mp": 0,
+      "delay": 0
+    },
+    "price": "中",
+    "job": [
+      "ハイザ",
+      "サマナー",
+      "アルケミスト"
+    ],
+    "tags": [
+      "MATK",
+      "魔法火力"
+    ]
+  },
+  {
+    "name": "耐性強化クリスタ",
     "type": "クリスタ",
     "slot": "体",
     "effects": {
       "auto": 0,
-      "atk": 10,
-      "matk": 10,
-      "critical": 5,
-      "resist": 5
+      "atk": 0,
+      "matk": 0,
+      "critical": 0,
+      "resist": 10,
+      "mp": 0,
+      "delay": 0
     },
     "price": "中",
-    "job": "全職"
+    "job": [
+      "全職"
+    ],
+    "tags": [
+      "耐性",
+      "防御"
+    ]
   }
 ]
