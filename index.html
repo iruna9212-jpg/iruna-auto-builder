@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イルーナ オートビルダー</title>
+</head>
+
+<body>
+<h1>イルーナ・オートビルダー</h1>
+
+<p>装備名</p>
+<input type="text" id="equip">
+
+<p>クリスタ名</p>
+<input type="text" id="crysta">
+
+<button onclick="search()">検索</button>
+
+<h2>結果</h2>
+<div id="result"></div>
+
+<script>
+function search(){
+let equip=document.getElementById("equip").value;
+let crysta=document.getElementById("crysta").value;
+
+document.getElementById("result").innerHTML=
+"装備：" + equip + "<br>クリスタ：" + crysta;
+}
+</script>
+
+</body>
+</html>
