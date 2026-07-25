@@ -1,6 +1,6 @@
 [
   {
-    "name": "クリスタ名",
+    "name": "テストクリスタA",
     "type": "クリスタ",
     "slot": "武器",
     "effects": {
@@ -11,6 +11,20 @@
       "resist": 0
     },
     "price": "高",
+    "job": "全職"
+  },
+  {
+    "name": "テストクリスタB",
+    "type": "クリスタ",
+    "slot": "体",
+    "effects": {
+      "auto": 0,
+      "atk": 10,
+      "matk": 10,
+      "critical": 5,
+      "resist": 5
+    },
+    "price": "中",
     "job": "全職"
   }
 ]
