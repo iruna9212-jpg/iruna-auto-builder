@@ -1,16 +1,16 @@
 [
   {
-    "name": "テストソード",
-    "type": "武器",
-    "atk": 300,
-    "matk": 0,
-    "effect": "ATK+10%"
-  },
-  {
-    "name": "テストローブ",
-    "type": "体装備",
-    "atk": 0,
-    "matk": 350,
-    "effect": "MATK+15%"
+    "name": "クリスタ名",
+    "type": "クリスタ",
+    "slot": "武器",
+    "effects": {
+      "auto": 5,
+      "atk": 0,
+      "matk": 0,
+      "critical": 0,
+      "resist": 0
+    },
+    "price": "高",
+    "job": "全職"
   }
 ]
