@@ -113,7 +113,33 @@ html += `
 <h3>${item.name}</h3>
 種類：${item.type}<br>
 部位：${item.slot}<br>
-スロット数：${item.slotCount}<br>
+<label>武器スロット数</label>
+<select id="weaponSlot">
+<option value="all">指定なし</option>
+<option value="1">1スロット</option>
+<option value="2">2スロット</option>
+</select>
+
+<label>体スロット数</label>
+<select id="bodySlot">
+<option value="all">指定なし</option>
+<option value="1">1スロット</option>
+<option value="2">2スロット</option>
+</select>
+
+<label>追加スロット数</label>
+<select id="addSlot">
+<option value="all">指定なし</option>
+<option value="1">1スロット</option>
+<option value="2">2スロット</option>
+</select>
+
+<label>特殊スロット数</label>
+<select id="specialSlot">
+<option value="all">指定なし</option>
+<option value="1">1スロット</option>
+<option value="2">2スロット</option>
+</select>
 <label>部位</label>
 <select id="slot">
 <option value="all">指定なし</option>
