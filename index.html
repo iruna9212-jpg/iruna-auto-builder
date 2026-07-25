@@ -114,6 +114,14 @@ html += `
 種類：${item.type}<br>
 部位：${item.slot}<br>
 スロット数：${item.slotCount}<br>
+<label>部位</label>
+<select id="slot">
+<option value="all">指定なし</option>
+<option value="武器">武器</option>
+<option value="体">体</option>
+<option value="追加">追加</option>
+<option value="特殊">特殊</option>
+</select>
 オート：${item.effects.auto}%<br>
 ATK：${item.effects.atk}<br>
 MATK：${item.effects.matk}<br>
