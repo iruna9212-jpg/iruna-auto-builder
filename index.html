@@ -1,25 +1,135 @@
-[
-  {
-    "name": "術巻物用武器サンプル",
-    "type": "装備",
-    "slot": "武器",
-    "slotCount": 2,
-    "effects": {
-      "auto": 5,
-      "atk": 0,
-      "matk": 10,
-      "critical": 0,
-      "resist": 0,
-      "mp": 5,
-      "delay": 5
-    },
-    "job": [
-      "パラディン"
-    ],
-    "tags": [
-      "術巻物",
-      "オート向け",
-      "魔法補助"
-    ]
-  }
-]
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>イルーナ自動装備検索</title>
+
+<style>
+body {
+  font-family: sans-serif;
+  padding: 15px;
+}
+
+select, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.result {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>イルーナ自動装備検索</h2>
+
+<label>種類</label>
+<select id="type">
+<option value="all">全て</option>
+<option value="装備">装備</option>
+<option value="クリスタ">クリスタ</option>
+</select>
+
+<label>職業</label>
+<select id="job">
+<option value="all">指定なし</option>
+<option value="パラディン">パラディン</option>
+<option value="ハイザ">ハイザ</option>
+<option value="サマナー">サマナー</option>
+<option value="アルケミスト">アルケミスト</option>
+</select>
+
+<label>スロット数</label>
+<select id="slotCount">
+<option value="all">指定なし</option>
+<option value="1">1スロット</option>
+<option value="2">2スロット</option>
+</select>
+
+<label>目的</label>
+<select id="tag">
+<option value="all">指定なし</option>
+<option value="術巻物">術巻物</option>
+<option value="オート向け">オート向け</option>
+<option value="火力">火力</option>
+<option value="耐性">耐性</option>
+</select>
+
+<button onclick="search()">検索</button>
+
+<div id="result"></div>
+
+
+<script>
+
+let data = [];
+
+fetch("equip.json")
+.then(res => res.json())
+.then(json => {
+  data = json;
+});
+
+
+function search(){
+
+let type = document.getElementById("type").value;
+let job = document.getElementById("job").value;
+let slot = document.getElementById("slotCount").value;
+let tag = document.getElementById("tag").value;
+
+
+let result = data.filter(item => {
+
+if(type !== "all" && item.type !== type)
+return false;
+
+if(job !== "all" && !item.job.includes(job))
+return false;
+
+if(slot !== "all" && item.slotCount != slot)
+return false;
+
+if(tag !== "all" && !item.tags.includes(tag))
+return false;
+
+return true;
+
+});
+
+
+let html="";
+
+result.forEach(item=>{
+
+html += `
+<div class="result">
+<h3>${item.name}</h3>
+種類：${item.type}<br>
+部位：${item.slot}<br>
+スロット数：${item.slotCount}<br>
+オート：${item.effects.auto}%<br>
+ATK：${item.effects.atk}<br>
+MATK：${item.effects.matk}<br>
+耐性：${item.effects.resist}<br>
+</div>
+`;
+
+});
+
+
+document.getElementById("result").innerHTML =
+html || "該当なし";
+
+}
+
+</script>
+
+</body>
+</html>
