@@ -7,38 +7,118 @@
 
 <style>
 body{
-    font-family:sans-serif;
-    background:#1f1f1f;
-    color:white;
-    text-align:center;
-    margin:0;
+  font-family:sans-serif;
+  background:#222;
+  color:white;
+  text-align:center;
 }
-h1{
-    background:#0077ff;
-    margin:0;
-    padding:20px;
+
+input{
+  width:80%;
+  padding:12px;
+  font-size:16px;
 }
+
 button{
-    width:90%;
-    max-width:400px;
-    padding:15px;
-    margin:10px;
-    font-size:18px;
-    border:none;
-    border-radius:10px;
+  padding:12px 30px;
+  margin:10px;
+  font-size:16px;
+  border-radius:10px;
+}
+
+.card{
+  background:#333;
+  margin:10px;
+  padding:15px;
+  border-radius:10px;
 }
 </style>
+
 </head>
 
 <body>
 
 <h1>イルーナ オートビルダー</h1>
 
-<button>🔍 装備検索</button><br>
-<button>💎 クリスタ検索</button><br>
-<button>🤖 自動装備構成</button><br>
-<button>📊 オート率計算</button><br>
-<button>⭐ お気に入り</button><br>
+<h2>🔍 装備検索</h2>
+
+<input id="search" placeholder="装備名を入力">
+
+<br>
+
+<button onclick="searchEquip()">検索</button>
+
+<div id="result"></div>
+
+
+<script>
+
+let equips = [];
+
+// equip.jsonを読み込む
+fetch("equip.json")
+.then(response => response.json())
+.then(data => {
+    equips = data;
+})
+.catch(error => {
+    document.getElementById("result").innerHTML =
+    "データ読み込みエラー";
+});
+
+
+// 検索
+function searchEquip(){
+
+let word =
+document.getElementById("search").value;
+
+let result =
+document.getElementById("result");
+
+
+let found =
+equips.filter(e =>
+e.name.includes(word)
+);
+
+
+if(found.length > 0){
+
+result.innerHTML="";
+
+found.forEach(e=>{
+
+result.innerHTML += `
+
+<div class="card">
+
+<h3>${e.name}</h3>
+
+種類：${e.type}<br>
+
+ATK：${e.atk}<br>
+
+MATK：${e.matk}<br>
+
+効果：${e.effect}
+
+</div>
+
+`;
+
+});
+
+}else{
+
+result.innerHTML="見つかりませんでした";
+
+}
+
+}
+
+</script>
+
 
 </body>
 </html>
