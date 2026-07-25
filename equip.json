@@ -1,22 +1,24 @@
-{
-  "name": "装備名",
-  "type": "装備",
-  "slot": "武器",
-  "slotCount": 2,
-  "effects": {
-    "auto": 0,
-    "atk": 0,
-    "matk": 0,
-    "critical": 0,
-    "resist": 0,
-    "mp": 0,
-    "delay": 0
-  },
-  "job": [
-    "パラディン"
-  ],
-  "tags": [
-    "術巻物",
-    "オート向け"
-  ]
-}
+[
+  {
+    "name": "装備名",
+    "type": "装備",
+    "slot": "武器",
+    "effects": {
+      "auto": 0,
+      "atk": 0,
+      "matk": 0,
+      "critical": 0,
+      "resist": 0,
+      "mp": 0,
+      "delay": 0
+    },
+    "holes": 2,
+    "job": [
+      "パラディン"
+    ],
+    "tags": [
+      "術巻物",
+      "オート向け"
+    ]
+  }
+]
